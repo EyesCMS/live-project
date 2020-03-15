@@ -1,22 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>task</title>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<ul>
-    <li>
-        <form action="" >
-            <label > task_id</label>
-            <input id="task_id" type="text" >
-            <label> start_time</label>
-            <input type="text" id="start_time">
-            <label > end_time</label>
-            <input type="text" id="end_time">
-            <input type="button" value="参加活动">
-        </form>
-    </li>
-</ul>
+<div id="show_tasks">
+    <table class="table" style="" border="1">
+        <thead>
+        <tr>
+            <th>task_id</th>
+            <th>start_time</th>
+            <th>end_time</th>
+            <th>operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="参加活动"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="参加活动"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="参加活动"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="button" value="参加活动"></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+<!--<ul>-->
+<!--    <li>-->
+<!--        <form action="" >-->
+<!--            <label > task_id</label>-->
+<!--            <input id="task_id" type="text" >-->
+<!--            <label> start_time</label>-->
+<!--            <input type="text" id="start_time">-->
+<!--            <label > end_time</label>-->
+<!--            <input type="text" id="end_time">-->
+<!--            <input type="button" value="参加活动">-->
+<!--        </form>-->
+<!--    </li>-->
+<!--</ul>-->
 </body>
 </html>
