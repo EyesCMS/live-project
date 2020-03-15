@@ -37,7 +37,6 @@ public class TaskServiceImpl implements TaskService {
         return taskDao.selectByPrimaryKey(id);
     }
 
-
     @Override
     public int insertByTask(Task task) {
         return taskDao.insert(task);

@@ -1,11 +1,9 @@
 package edu.fzu.zhishe.reservesystem.controller;
 
 import edu.fzu.zhishe.reservesystem.generator.Task;
-import edu.fzu.zhishe.reservesystem.generator.TaskDao;
-import edu.fzu.zhishe.reservesystem.generator.TaskExample;
 import edu.fzu.zhishe.reservesystem.service.TaskService;
-import edu.fzu.zhishe.reservesystem.service.impl.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
@@ -37,7 +35,6 @@ public class AdminController {
         Date startFullDate = simpleDateFormat.parse(startDate + " " + startTime);
         Date endFullDate = simpleDateFormat.parse(endDate + " " + endTime);
         Task task = new Task();
-        //task.setTaskId(1);
         task.setStartTime(startFullDate);
         task.setEndTime(endFullDate);
         task.setMaxNum(maxSingleNum);
