@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/not_finished.css"/>
   <title>Result</title>
 </head>
 <body>
-  <div id="wrap">
-    <div id="notice">
-      <h3>尚未到开奖时间，请耐心等待！</h3>
-    </div>
-    <div id="time">
-      开始时间<h2 th:text=""></h2>
-      结束时间<h2 th:text=""></h2>
-    </div>
+<div id="wrap">
+  <div id="notice">
+    <h3>尚未到开奖时间，请耐心等待！</h3>
   </div>
+  <div id="time">
+    <p> 开始时间</p>
+    <h2 th:text="${notFinishedModel.startTime}"></h2>
+    <p> 结束时间</p>
+    <h2 th:text="${notFinishedModel.endTime}"></h2>
+  </div>
+</div>
 </body>
 </html>

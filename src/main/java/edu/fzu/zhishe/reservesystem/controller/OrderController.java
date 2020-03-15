@@ -1,28 +1,44 @@
 package edu.fzu.zhishe.reservesystem.controller;
 
+import edu.fzu.zhishe.reservesystem.generator.OrderList;
+import edu.fzu.zhishe.reservesystem.generator.Task;
+import edu.fzu.zhishe.reservesystem.service.OrderService;
 import edu.fzu.zhishe.reservesystem.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author xjliang
  */
-@RequestMapping("/order")
+
 @Controller
 public class OrderController {
 
     @Autowired
+    private OrderService orderService;
+
+    @Autowired
     private TaskService taskService;
 
-    @GetMapping("/{task_id}")
-    public String queryOrderResult(@PathVariable("task_id") Integer taskId) {
-        if (taskService.finished(taskId)) {
-            return "result";
-        } else {
-            return "not_finished";
+    @PostMapping("/order")
+    public ModelAndView queryOrderResult(@RequestParam("orderNumber") Integer orderId, Model model) {
+        OrderList order = orderService.findById(orderId);
+        if (order != null) {
+            Integer taskId = order.getTaskId();
+            if (taskService.finished(taskId)) {
+                model.addAttribute("random_result", orderService.hitJack(orderId));
+                return new ModelAndView("result", "orderResultModel", model);
+            } else {
+                Task task = taskService.findById(taskId);
+                model.addAttribute("startTime", task.getStartTime());
+                model.addAttribute("endTime", task.getEndTime());
+                return new ModelAndView("not_finished", "notFinishedModel", model);
+            }
         }
+        return new ModelAndView("user");
     }
 }

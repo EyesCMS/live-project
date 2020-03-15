@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+h1, h2, p {
+	text-align: center;
+}
+
+#login{
+	margin: 0 auto;
+}
+
+img {
+	margin: 0 auto;
+	display:block;
+
+}
+
+.input-group {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1em;
+}
+
+#basic-addon1, #basic-addon2 {
+	width: 20px;
+}
+
+input{
+	border-radius: 4px;
+}

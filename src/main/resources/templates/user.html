@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>用户界面</title>
+    <link rel="stylesheet" href="../static/css/user.css"/>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -13,7 +14,7 @@
 </head>
 <body>
     <div id="wrap">
-        
+
         <!-- 导航区 -->
 
         <ul class="nav nav-pills" role="tablist">
@@ -30,19 +31,19 @@
                 <form th:action="@{/user}" method="post">
                    <div id="name">
                        <label>真实姓名</label>
-                       <input id="trueName" type="text" placeholder="请输入真实姓名">
+                       <input id="trueName" name="name" type="text" placeholder="请输入真实姓名">
                    </div>
                     <div id="id_card">
                         <label>身份证号</label>
-                        <input id="idCard" type="text" placeholder="请输入身份证号">
+                        <input id="idCard" name="idNumber" type="text" placeholder="请输入身份证号">
                     </div>
                     <div id="phone_number">
                         <label>电话号码</label>
-                        <input id="phoneNumber" type="text" placeholder="请输入电话号码">
+                        <input id="phoneNumber" name="tel" type="text" placeholder="请输入电话号码">
                     </div>
                     <div id="mask_num">
                         <label>口罩数</label>
-                        <select id="maskNumber" class="combobox">
+                        <select id="maskNumber" name="maskNum" class="combobox">
                             <option value="three" selected>3</option>
                             <option value="two">2</option>
                             <option value="one">1 </option>
@@ -58,7 +59,7 @@
                 <form th:action="@{/order}" method="post">
                     <div id="search_div">
                         <label for="">预约编号</label>
-                        <input id="orderNumber" type="text" placeholder="请输入预约编号">
+                        <input id="orderNumber" name="orderNumber" type="text" placeholder="请输入预约编号">
                     </div>
                     <input type="submit" value="查询">
                 </form>

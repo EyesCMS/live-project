@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/result.css"/>
   <title>Result</title>
 </head>
 <body>
   <div id="wrap">
 <!--    中签-->
-    <div id="success" th:if="${}">
+    <div id="success" th:if="${resultModel.result}">
       <h1 style="color:red;">恭喜你！已中签</h1>
       <table>
         <tr>
@@ -28,7 +29,7 @@
         </tr>
       </table>
     </div>
-    <div id="fail"  th:if="${}">
+    <div id="fail"  th:unless="${resultModel.result}">
       <h1 style="color:red;">很遗憾！未中签</h1>
     </div>
     <button>返回</button>
