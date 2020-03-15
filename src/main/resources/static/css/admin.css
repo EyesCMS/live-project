@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+#welcome{
+	text-align:center;
+	font-family:微软雅黑;
+	font-size:25px;
+}
+
+#output{
+	background-color: #FFE4C4;
+	padding: 5px 10px;
+	font-family:微软雅黑;
+	font-weight:bold;
+	border-radius: 8px;
+	display:block;
+	margin:0 auto;
+}
+
+#output:hover,#commit:hover{
+	box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+table{
+	margin:auto;
+	border: 2px solid #404040;
+    font-family: Arial;
+    border-radius: 12px;
+    width:600px;
+    height:300px;
+}
+
+td{
+	font-family:微软雅黑;
+	font-size:20px;
+}
+
+tr:hover {
+  background-color:#FFF5EE; /* 动态变色,IE6下无效！*/
+}
+
+#commit{
+	background-color: #FFE4C4;
+	padding: 5px 10px;
+	border-radius: 8px;
+	font-family:微软雅黑;
+	font-weight:bold;
+}
