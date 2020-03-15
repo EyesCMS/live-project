@@ -1,6 +1,7 @@
 package edu.fzu.zhishe.reservesystem.controller;
 
 import edu.fzu.zhishe.reservesystem.generator.OrderList;
+import edu.fzu.zhishe.reservesystem.generator.Task;
 import edu.fzu.zhishe.reservesystem.service.OrderService;
 import edu.fzu.zhishe.reservesystem.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,10 @@ public class OrderController {
                 model.addAttribute("random_result", orderService.hitJack(orderId));
                 return new ModelAndView("result", "orderResultModel", model);
             } else {
-                return new ModelAndView("not_finished");
+                Task task = taskService.findById(taskId);
+                model.addAttribute("startTime", task.getStartTime());
+                model.addAttribute("endTime", task.getEndTime());
+                return new ModelAndView("not_finished", "notFinishedModel", model);
             }
         }
         return new ModelAndView("user");

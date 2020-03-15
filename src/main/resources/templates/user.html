@@ -13,7 +13,7 @@
 </head>
 <body>
     <div id="wrap">
-        
+
         <!-- 导航区 -->
 
         <ul class="nav nav-pills" role="tablist">
@@ -58,7 +58,7 @@
                 <form th:action="@{/order}" method="post">
                     <div id="search_div">
                         <label for="">预约编号</label>
-                        <input id="orderNumber" type="text" placeholder="请输入预约编号">
+                        <input id="orderNumber" name="orderNumber" type="text" placeholder="请输入预约编号">
                     </div>
                     <input type="submit" value="查询">
                 </form>
