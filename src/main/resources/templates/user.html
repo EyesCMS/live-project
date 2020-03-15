@@ -29,7 +29,8 @@
 <!--            预约区-->
             <div role="tabpanel" class="tab-pane active" id="appointment">
                 <h2>请填写个人信息进行预约</h2>
-                <form th:action="@{/user}" method="post">
+                <form th:action="@{/order/add}" method="post">
+                   <input type="hidden" name="task_id" th:text="${}">
                    <div id="name">
                        <label>真实姓名</label>
                        <input id="trueName" name="name" type="text" placeholder="请输入真实姓名">
@@ -57,7 +58,7 @@
 <!--            查询面板-->
             <div role="tabpanel" class="tab-pane" id="search">
                 <h2>请输入预约编号进行查询</h2>
-                <form th:action="@{/order}" method="post">
+                <form th:action="@{/order/query}" method="post">
                     <div id="search_div">
                         <label for="">预约编号</label>
                         <input id="orderNumber" name="orderNumber" type="text" placeholder="请输入预约编号">

@@ -15,39 +15,25 @@
         <thead>
         <tr>
             <th>task_id</th>
+            <th>total_num</th>
+            <th>max_num</th>
             <th>start_time</th>
             <th>end_time</th>
             <th>operation</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><input type="button" value="参加活动"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><input type="button" value="参加活动"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><input type="button" value="参加活动"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><input type="button" value="参加活动"></td>
-        </tr>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.taskId}">A name test</td>
+                <td th:text="${task.totalNum}">A name test</td>
+                <td th:text="${task.maxNum}">A name test</td>
+                <td th:text="${task.startTime}">A startTime test</td>
+                <td th:text="${task.endTime}">An endTime test</td>
+                <td><input type="button" value="参加活动"></td>
+            </tr>
         </tbody>
     </table>
-    
+
 </div>
 
 <!--<ul>-->
