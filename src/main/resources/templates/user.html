@@ -31,19 +31,19 @@
                 <form th:action="@{/user}" method="post">
                    <div id="name">
                        <label>真实姓名</label>
-                       <input id="trueName" type="text" placeholder="请输入真实姓名">
+                       <input id="trueName" name="name" type="text" placeholder="请输入真实姓名">
                    </div>
                     <div id="id_card">
                         <label>身份证号</label>
-                        <input id="idCard" type="text" placeholder="请输入身份证号">
+                        <input id="idCard" name="idNumber" type="text" placeholder="请输入身份证号">
                     </div>
                     <div id="phone_number">
                         <label>电话号码</label>
-                        <input id="phoneNumber" type="text" placeholder="请输入电话号码">
+                        <input id="phoneNumber" name="tel" type="text" placeholder="请输入电话号码">
                     </div>
                     <div id="mask_num">
                         <label>口罩数</label>
-                        <select id="maskNumber" class="combobox">
+                        <select id="maskNumber" name="maskNum" class="combobox">
                             <option value="three" selected>3</option>
                             <option value="two">2</option>
                             <option value="one">1 </option>
