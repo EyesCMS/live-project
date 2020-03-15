@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/infect_statistic?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/reserve_system?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -11,8 +11,8 @@ spring:
     suffix: .html
     prefix: classpath:/templates/
 
-#mybatis:
-#  mapper-locations: classpath:/generator/*.xml
-#  type-aliases-package: edu.fzu.infect.generator
-#  configuration:
-#    map-underscore-to-camel-case: true
+mybatis:
+  mapper-locations: classpath:/generator/*.xml
+  type-aliases-package: edu.fzu.zhishe.reservesystem.generator
+  configuration:
+    map-underscore-to-camel-case: true
