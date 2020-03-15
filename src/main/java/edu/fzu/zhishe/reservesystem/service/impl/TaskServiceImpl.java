@@ -26,4 +26,9 @@ public class TaskServiceImpl implements TaskService {
     public Task findById(Integer id) {
         return taskDao.selectByPrimaryKey(id);
     }
+
+
+    public int insertByTask(Task task) {
+        return taskDao.insert(task);
+    }
 }
