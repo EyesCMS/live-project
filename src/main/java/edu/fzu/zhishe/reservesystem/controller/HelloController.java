@@ -11,4 +11,9 @@ public class HelloController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("/user")
+    public String user() {
+        return "user";
+    }
 }
