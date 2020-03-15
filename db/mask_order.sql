@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 15/03/2020 17:47:55
+ Date: 16/03/2020 00:06:02
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admin_user`;
 CREATE TABLE `admin_user`  (
-  `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_psw` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -31,14 +31,14 @@ CREATE TABLE `admin_user`  (
 -- ----------------------------
 -- Records of admin_user
 -- ----------------------------
-INSERT INTO `admin_user` VALUES (00000000001, 'admin', 'admin');
+INSERT INTO `admin_user` VALUES (1, 'admin', 'admin');
 
 -- ----------------------------
 -- Table structure for order_list
 -- ----------------------------
 DROP TABLE IF EXISTS `order_list`;
 CREATE TABLE `order_list`  (
-  `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `id_card` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -53,9 +53,9 @@ CREATE TABLE `order_list`  (
 -- ----------------------------
 -- Records of order_list
 -- ----------------------------
-INSERT INTO `order_list` VALUES (0000000001, '小明', '0001', '1001', 3, 1, 0);
-INSERT INTO `order_list` VALUES (0000000002, '小华', '0002', '1002', 2, 1, 0);
-INSERT INTO `order_list` VALUES (0000000003, '小芳', '0003', '1003', 3, 2, 0);
+INSERT INTO `order_list` VALUES (1, '小明', '0001', '1001', 3, 1, 0);
+INSERT INTO `order_list` VALUES (2, '小华', '0002', '1002', 2, 1, 0);
+INSERT INTO `order_list` VALUES (3, '小芳', '0003', '1003', 3, 2, 0);
 
 -- ----------------------------
 -- Table structure for task
