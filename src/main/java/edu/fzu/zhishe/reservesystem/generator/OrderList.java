@@ -3,10 +3,10 @@ package edu.fzu.zhishe.reservesystem.generator;
 import java.io.Serializable;
 
 /**
- * order
+ * order_list
  * @author 
  */
-public class Order implements Serializable {
+public class OrderList implements Serializable {
     private Integer id;
 
     private String name;
@@ -90,7 +90,7 @@ public class Order implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Order other = (Order) that;
+        OrderList other = (OrderList) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getIdCard() == null ? other.getIdCard() == null : this.getIdCard().equals(other.getIdCard()))

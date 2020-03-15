@@ -3,7 +3,7 @@ package edu.fzu.zhishe.reservesystem.generator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderExample {
+public class OrderListExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -14,7 +14,7 @@ public class OrderExample {
 
     private Long offset;
 
-    public OrderExample() {
+    public OrderListExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
