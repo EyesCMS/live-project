@@ -21,8 +21,10 @@
     <div id="wrap">
     <!-- 标题栏 -->
         <div id="header">
+            <img src="" alt="">
             <h2>口罩预约平台</h2>
         </div>
+        <hr>
 <!--        巨幕-->
         <div class="jumbotron" >
             <div class="container">
@@ -36,13 +38,23 @@
         <div id="login">
             <form action="">
                 <h2>登录</h2>
+                <img src="img/login_img.jpg" alt="登录头像" width="60px" height="60px">
                 <div id="username">
-                    <label>用户名</label>
-                    <input type="text" placeholder="请输入用户名">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">用户名</span>
+                        <input type="text" class="form-control" placeholder="请输入用户名" aria-describedby="basic-addon1">
+                    </div>
+<!--                    <label>用户名</label>-->
+<!--                    <input type="text" placeholder="请输入用户名">-->
+<!--                    -->
                 </div>
                 <div id="password">
-                    <label>密码</label>
-                    <input type="password" placeholder="请输入密码">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">密码</span>
+                        <input type="password" class="form-control" placeholder="请输入密码" aria-describedby="basic-addon1">
+                    </div>
+<!--                    <label>密码</label>-->
+<!--                    <input type="password" placeholder="请输入密码">-->
                 </div>
                 <input type="submit" value="提交" />
             </form>
