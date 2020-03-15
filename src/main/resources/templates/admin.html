@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>管理员界面</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+    <h3 id="welcome">欢迎使用管理员界面！</h3>
+    <button id="output" onclick="">导出中签名单</button>
+    <div id="table">
+        <form>
+            <table frame="box">
+                <th id="title">
+                    <td align="center" colspan="8">预约表单</td>
+                </th>
+                <tr id="start">
+                    <td colspan="2"></td>
+                    <td align="center">开始时间:</td>
+                    <td><input id="input1" type="date"/><input id="input2" type="time"/></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr id="end">
+                    <td colspan="2"></td>
+                    <td align="center">结束时间:</td>
+                    <td><input type="date"/><input id="input3" type="time"/></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr id="everyNum">
+                    <td colspan="2" rolspan="2"></td>
+                    <td rolspan="2" align="center">单个用户最高<br/>可预约口罩数量:</td>
+                    <td rolspan="2"><input id="input4" type="number" min="1"/></td>
+                    <td colspan="2" rolspan="2"></td>
+                </tr>
+                <tr id="totalNum">
+                    <td colspan="2" rolspan="2"></td>
+                    <td rolspan="2" align="center">口罩总数:</td>
+                    <td rolspan="2"><input id="input5" type="number" min="1"/></td>
+                    <td colspan="2" rolspan="2"></td>
+                <tr id="submit">
+                    <td colspan="8" align="center" onclick="set()"><input type="submit" value="发布活动"/></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    <script>
+        function set(){
+            var input1=document.getElementById("input1");
+            var input2=document.getElementById("input2");
+            var input3=document.getElementById("input3");
+            var input4=document.getElementById("input4");
+            var input5=document.getElementById("input5");
+            alert("活动发布成功！");
+            input1.value="";
+            input2.value="";
+            input3.value="";
+            input4.value="";
+            input5.value="";
+        }
+    </script>
+</body>
