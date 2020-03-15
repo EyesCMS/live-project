@@ -5,6 +5,33 @@
   <title>Result</title>
 </head>
 <body>
-  <h2>This is a result</h2>
+  <div id="wrap">
+<!--    中签-->
+    <div id="success" th:if="${}">
+      <h1 style="color:red;">恭喜你！已中签</h1>
+      <table>
+        <tr>
+          <td>姓名</td>
+          <td th:text=""></td>
+        </tr>
+        <tr>
+          <td>身份证号码</td>
+          <td th:text=""></td>
+        </tr>
+        <tr>
+          <td>手机号码</td>
+          <td th:text=""></td>
+        </tr>
+        <tr>
+          <td>口罩数</td>
+          <td th:text=""></td>
+        </tr>
+      </table>
+    </div>
+    <div id="fail"  th:if="${}">
+      <h1 style="color:red;">很遗憾！未中签</h1>
+    </div>
+    <button>返回</button>
+  </div>
 </body>
 </html>
