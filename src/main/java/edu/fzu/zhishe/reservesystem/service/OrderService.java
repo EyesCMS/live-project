@@ -1,6 +1,7 @@
 package edu.fzu.zhishe.reservesystem.service;
 
 import edu.fzu.zhishe.reservesystem.generator.OrderList;
+import edu.fzu.zhishe.reservesystem.generator.Task;
 
 public interface OrderService {
 
@@ -11,4 +12,6 @@ public interface OrderService {
 
 
     boolean hitJack(Integer id);
+
+    int insertByOrderList(OrderList orderList);
 }

@@ -33,4 +33,9 @@ public class OrderServiceImpl implements OrderService {
         }
         return false;
     }
+
+    @Override
+    public int insertByOrderList(OrderList orderList){
+        return orderListDao.insert(orderList);
+    }
 }
