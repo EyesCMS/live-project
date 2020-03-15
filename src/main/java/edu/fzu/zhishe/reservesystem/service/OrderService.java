@@ -1,10 +1,12 @@
 package edu.fzu.zhishe.reservesystem.service;
 
-import edu.fzu.zhishe.reservesystem.generator.Order;
+import edu.fzu.zhishe.reservesystem.generator.OrderList;
 
 public interface OrderService {
 
-    void add(Order order);
+    OrderList findById(Integer id);
 
-    void queryOrderResult();
+    void add(OrderList order);
+
+    boolean hitJack(Integer id);
 }
