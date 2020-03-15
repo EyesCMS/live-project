@@ -3,7 +3,11 @@ package edu.fzu.zhishe.reservesystem.controller;
 import edu.fzu.zhishe.reservesystem.generator.Task;
 import edu.fzu.zhishe.reservesystem.generator.TaskDao;
 import edu.fzu.zhishe.reservesystem.generator.TaskExample;
+
+import edu.fzu.zhishe.reservesystem.service.TaskService;
 import edu.fzu.zhishe.reservesystem.service.impl.TaskServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,10 @@ import java.util.Date;
 
 @Controller
 public class AdminController {
+
+    @Autowired
+    private TaskService taskService;
+
     @RequestMapping("/admin")
     public String admin() {
         return "admin";
@@ -31,7 +39,6 @@ public class AdminController {
         Date startFullDate = simpleDateFormat.parse(startDate + " " + startTime);
         Date endFullDate = simpleDateFormat.parse(endDate + " " + endTime);
         Task task = new Task();
-        //task.setTaskId(1);
         task.setStartTime(startFullDate);
         task.setEndTime(endFullDate);
         task.setMaxNum(maxSingleNum);
@@ -40,11 +47,15 @@ public class AdminController {
         System.out.println(endFullDate);
         System.out.println(maxSingleNum);
         System.out.println(maxTotalNum);
-        TaskServiceImpl taskService = new TaskServiceImpl();
+
         taskService.insertByTask(task);
         System.out.println(task.toString());
+
+        //int count = TaskDao.insert();
+
         return "admin";
 
     }
 }
+
 
