@@ -1,0 +1,17 @@
+#wrap{
+	text-align:center;
+}
+
+ul{
+	display:table;
+	text-align:center;
+	margin:0 auto;
+}
+
+input{
+	border-radius: 4px;
+}
+
+input:hover{
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24), 0 12px 50px 0 rgba(0,0,0,0.19);
+}
