@@ -28,4 +28,5 @@ public class AdminServiceImpl implements AdminService {
         List<AdminUser> adminUsers = adminUserDao.selectByExample(adminUserExample);
         return adminUsers.isEmpty() ? null : adminUsers.get(0);
     }
+
 }

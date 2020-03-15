@@ -9,4 +9,6 @@ public interface TaskService {
     boolean finished(Integer id);
 
     Task findById(Integer id);
+
+    int insertByTask(Task task);
 }
