@@ -4,9 +4,11 @@ import edu.fzu.zhishe.reservesystem.generator.OrderList;
 
 public interface OrderService {
 
-    OrderList findById(Integer id);
 
     int add(OrderList order);
+
+    OrderList findById(Integer id);
+
 
     boolean hitJack(Integer id);
 }
