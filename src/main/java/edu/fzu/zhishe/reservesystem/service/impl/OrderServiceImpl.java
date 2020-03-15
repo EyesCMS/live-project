@@ -21,8 +21,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void add(OrderList order) {
-        
+    public int add(OrderList order) {
+        return orderListDao.insert(order);
     }
 
     @Override

@@ -5,7 +5,7 @@ import edu.fzu.zhishe.reservesystem.generator.OrderList;
 public interface OrderService {
 
 
-    void add(OrderList order);
+    int add(OrderList order);
 
     OrderList findById(Integer id);
 

@@ -8,28 +8,28 @@
 <body>
   <div id="wrap">
 <!--    中签-->
-    <div id="success" th:if="${resultModel.result}">
+    <div id="success" th:if="${orderResultModel.random_result}">
       <h1 style="color:red;">恭喜你！已中签</h1>
       <table>
         <tr>
           <td>姓名</td>
-          <td th:text=""></td>
+          <td th:text="${orderResultModel.order.name}"></td>
         </tr>
         <tr>
           <td>身份证号码</td>
-          <td th:text=""></td>
+          <td th:text="${orderResultModel.order.idCard}"></td>
         </tr>
         <tr>
           <td>手机号码</td>
-          <td th:text=""></td>
+          <td th:text="${orderResultModel.order.phone}"></td>
         </tr>
         <tr>
           <td>口罩数</td>
-          <td th:text=""></td>
+          <td th:text="${orderResultModel.order.num}"></td>
         </tr>
       </table>
     </div>
-    <div id="fail"  th:unless="${resultModel.result}">
+    <div id="fail"  th:unless="${orderResultModel.random_result}">
       <h1 style="color:red;">很遗憾！未中签</h1>
     </div>
     <button>返回</button>
