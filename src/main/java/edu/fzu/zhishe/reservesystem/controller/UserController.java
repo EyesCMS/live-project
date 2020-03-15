@@ -33,16 +33,12 @@ public class UserController {
         orderList.setName(name);
         orderList.setPhone(tel);
         orderList.setNum(Integer.parseInt(num));
-        orderList.setTaskId(1);//这里留作task_id填写
-        orderList.setSuccess(0);//如果0代表没中签
-        System.out.println(name);
-        System.out.println(idNum);
-        System.out.println(tel);
-        System.out.println(num);
+        orderList.setTaskId(Integer.parseInt(task_id));//这里留作task_id填写
+        orderList.setSuccess(0);//如果0代表没中
 
 
         System.out.println(orderList.toString());
-        orderService.add(orderList);
+        //orderService.add(orderList);
         return "user";
     }
 
