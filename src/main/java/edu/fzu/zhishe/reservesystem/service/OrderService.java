@@ -6,7 +6,7 @@ public interface OrderService {
 
     OrderList findById(Integer id);
 
-    void add(OrderList order);
+    int add(OrderList order);
 
     boolean hitJack(Integer id);
 }
