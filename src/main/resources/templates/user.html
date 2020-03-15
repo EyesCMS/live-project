@@ -18,6 +18,7 @@
         <!-- 导航区 -->
 
         <ul class="nav nav-pills" role="tablist">
+            <li><a href="login">登录</a></li>
             <li role="presentation" class="active"><a href="#appointment" role="tab" data-toggle="tab">预约</a></li>
             <li role="presentation"><a href="#search" role="tab" data-toggle="tab">查询</a></li>
 <!--            <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">插</a></li>-->
@@ -28,7 +29,8 @@
 <!--            预约区-->
             <div role="tabpanel" class="tab-pane active" id="appointment">
                 <h2>请填写个人信息进行预约</h2>
-                <form th:action="@{/user}" method="post">
+                <form th:action="@{/order/add}" method="post">
+                   <input type="hidden" name="task_id" th:text="${}">
                    <div id="name">
                        <label>真实姓名</label>
                        <input id="trueName" name="name" type="text" placeholder="请输入真实姓名">
@@ -44,9 +46,9 @@
                     <div id="mask_num">
                         <label>口罩数</label>
                         <select id="maskNumber" name="maskNum" class="combobox">
-                            <option value="three" selected>3</option>
-                            <option value="two">2</option>
-                            <option value="one">1 </option>
+                            <option value="3" selected>3</option>
+                            <option value="2">2</option>
+                            <option value="1">1 </option>
                         </select>
                         <br>
                         <input type="submit" value="预约">
@@ -56,7 +58,7 @@
 <!--            查询面板-->
             <div role="tabpanel" class="tab-pane" id="search">
                 <h2>请输入预约编号进行查询</h2>
-                <form th:action="@{/order}" method="post">
+                <form th:action="@{/order/query}" method="post">
                     <div id="search_div">
                         <label for="">预约编号</label>
                         <input id="orderNumber" name="orderNumber" type="text" placeholder="请输入预约编号">
