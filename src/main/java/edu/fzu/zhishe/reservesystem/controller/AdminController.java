@@ -53,18 +53,15 @@ public class AdminController {
             System.out.println("单个用户最高可预约口罩数量不得大于总数");
             return "admin";
         }
-        System.out.println(startFullDate);
         Task task = new Task();
         task.setStartTime(startFullDate);
         task.setEndTime(endFullDate);
         task.setMaxNum(Integer.parseInt(maxSingleNum));
         task.setTotalNum(Integer.parseInt(maxTotalNum));
         taskService.insertByTask(task);
-        System.out.println(task.toString());
 
-        //int count = TaskDao.insert();
         System.out.println("任务发布成功");
-        return "admin";
+        return "task";
 
     }
 }
