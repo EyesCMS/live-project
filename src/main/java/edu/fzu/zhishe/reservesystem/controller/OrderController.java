@@ -8,7 +8,9 @@ import edu.fzu.zhishe.reservesystem.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author xjliang
  */
 
+@RequestMapping("/order")
 @Controller
 public class OrderController {
 
@@ -28,7 +31,7 @@ public class OrderController {
     @Autowired
     private DateUtil dateUtil;
 
-    @PostMapping("/order")
+    @PostMapping("/query")
     public ModelAndView queryOrderResult(@RequestParam("orderNumber") Integer orderId, Model model) {
         OrderList order = orderService.findById(orderId);
         if (order != null) {

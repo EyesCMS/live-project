@@ -5,6 +5,7 @@ import edu.fzu.zhishe.reservesystem.generator.TaskDao;
 import edu.fzu.zhishe.reservesystem.service.TaskService;
 import edu.fzu.zhishe.reservesystem.util.DateUtil;
 import java.util.Date;
+import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,11 @@ public class TaskServiceImpl implements TaskService {
         Date endTime = taskDao.selectByPrimaryKey(id).getEndTime();
         String currentTime = dateUtil.format(new Date());
         return currentTime.compareTo(dateUtil.format(endTime)) >= 0;
+    }
+
+    @Override
+    public List<Task> findAll() {
+        return taskDao.selectByExample(null);
     }
 
     @Override
