@@ -14,6 +14,9 @@
  Date: 15/03/2020 14:04:46
 */
 
+create database `reserve_system`;
+use `reserve_system`;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
