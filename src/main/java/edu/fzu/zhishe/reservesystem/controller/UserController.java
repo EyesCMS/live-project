@@ -20,25 +20,29 @@ public class UserController {
 
 
     @PostMapping("/user")
-    public String doOrder(@RequestParam(value="task_id") String task_id,
+    public String doOrder(
                           @RequestParam(value="name") String name,
                           @RequestParam(value="idNumber") String idNum,
                           @RequestParam(value="tel") String tel,
                           @RequestParam(value="maskNum") String num)
     {
 
+        //@RequestParam(value="task_id") String task_id,
 
         OrderList orderList = new OrderList();
         orderList.setIdCard(idNum);
         orderList.setName(name);
         orderList.setPhone(tel);
         orderList.setNum(Integer.parseInt(num));
-        orderList.setTaskId(Integer.parseInt(task_id));//这里留作task_id填写
+        orderList.setTaskId(1);//这里留作task_id填写
         orderList.setSuccess(0);//如果0代表没中
+
+        //测试
+        //orderList.setId(0000000002);
 
 
         System.out.println(orderList.toString());
-        //orderService.add(orderList);
+        //orderService.insertByOrderList(orderList);
         return "user";
     }
 
