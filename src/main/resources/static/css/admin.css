@@ -16,7 +16,7 @@
 	margin:0 auto;
 }
 
-#output:hover,#commit:hover{
+#output:hover,#commit:hover,#check:hover{
 	box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -39,7 +39,7 @@ tr:hover {
   background-color:#FFF5EE;
 }
 
-#commit{
+#commit,#check{
 	background-color: #FFE4C4;
 	padding: 5px 10px;
 	border-radius: 8px;
