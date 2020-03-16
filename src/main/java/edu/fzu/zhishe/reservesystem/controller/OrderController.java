@@ -30,8 +30,11 @@ public class OrderController {
     @Autowired
     private DateUtil dateUtil;
 
+    private int taskId;
+
     @RequestMapping("/index")
-    public String index() {
+    public String index(@RequestParam(value="taskId") String task_id) {
+        taskId = Integer.parseInt(task_id);
         return "order/index";
     }
 
@@ -57,8 +60,9 @@ public class OrderController {
         return new ModelAndView("order/index");
     }
 
+
     @PostMapping("/add")
-    public String doOrder(/*+++++++++++++++++++++++++++++++++++++*/
+    public String doOrder(
         @RequestParam(value="name") String name,
         @RequestParam(value="idNumber") String idNum,
         @RequestParam(value="tel") String tel,
@@ -66,13 +70,13 @@ public class OrderController {
     {
 
         //@RequestParam(value="task_id") String task_id,   这个等前端task_id表单写好粘贴到+++++处
-
+        //System.out.println(taskId);
         OrderList orderList = new OrderList();
         orderList.setIdCard(idNum);
         orderList.setName(name);
         orderList.setPhone(tel);
         orderList.setNum(Integer.parseInt(num));
-        orderList.setTaskId(1);//这里留作task_id填写
+        orderList.setTaskId(taskId);//这里留作task_id填写
         orderList.setSuccess(0);//如果0代表没中
 
         System.out.println(orderList.toString());

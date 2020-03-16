@@ -29,7 +29,12 @@
                 <td th:text="${task.maxNum}">A name test</td>
                 <td th:text="${task.startTime}">A startTime test</td>
                 <td th:text="${task.endTime}">An endTime test</td>
-                <td><input type="button" value="参加活动"></td>
+                <td>
+                    <form th:action="@{/order/index}" method="post">
+                        <input type="text" name="taskId" th:value="${task.taskId}" style="display: none">
+                        <input type="submit" value="参加活动">
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
