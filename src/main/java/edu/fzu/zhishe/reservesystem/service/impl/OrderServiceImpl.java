@@ -69,23 +69,48 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public int isHitBefore(String name, String idNum, String tel, String num, int task_id) {
-        int count = 0;
+        int count1 = 0;
+        int count2 = 0;
         int hitTaskId = 0;
+        //身份证号判断
+        System.out.println("身份证号判断");
         for(int i = task_id - 1;i>0;i--){
-            count++;
-            if(count>3){
-                return hitTaskId;
-            }
-            OrderList orderList = findByIdNumAndTaskId(idNum,i);
-            if(orderList==null){
-                System.out.println("你没有参加第" + i + "次活动");
-                continue;
-            }
-            if(orderList.getSuccess()==1){
-                hitTaskId = i;
+            count1++;
+            if(count1>3){
                 break;
             }
+            OrderList orderList1 = findByIdNumAndTaskId(idNum,i);
+            if(orderList1==null){
+                //System.out.println("身份证号：" + idNum + "没有参加第" + i + "次活动");
+                continue;
+            }
+            //System.out.println("身份证号：" + idNum + "有参加第" + i + "次活动");
+            if(orderList1.getSuccess()==1){
+                System.out.println("身份证号：" + idNum + "参加第" + i + "次活动中奖");
+                hitTaskId = i;
+                return hitTaskId;
+            }
         }
+        System.out.println("手机号判断");
+        //手机号判断
+        for(int i = task_id - 1;i>0;i--){
+            count2++;
+            if(count2>3){
+                break;
+            }
+            OrderList orderList2 = findByTelAndTaskId(tel,i);
+            if(orderList2==null){
+                //System.out.println("手机号：" + tel + "没有参加第" + i + "次活动");
+                continue;
+            }
+            //System.out.println("手机号：" + tel + "有参加第" + i + "次活动");
+            if(orderList2.getSuccess()==1){
+                System.out.println("手机号：" + tel + "参加第" + i + "次活动中奖");
+                hitTaskId = i;
+                return hitTaskId;
+            }
+        }
+        //System.out.println(hitTaskId);
         return hitTaskId;
     }
 
