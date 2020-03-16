@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="/css/task.css"/>
     <script th:src="@{/js/jquery.min.js}"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="show_tasks">
@@ -30,12 +30,8 @@
                 <td th:text="${task.maxNum}">A name test</td>
                 <td th:text="${task.startTime}">A startTime test</td>
                 <td th:text="${task.endTime}">An endTime test</td>
-<<<<<<< HEAD
-                <td><input type="button" value="参加活动" id="join"></td>
-=======
-                <td><a th:href="@{/admin/index/task/{taskId}(taskId=${task.taskId})}"><button class="btn btn-info">修改活动</button></a></td>
+                <td><a th:href="@{/admin/index/task/{taskId}(taskId=${task.taskId})}"><button id="join">修改活动</button></a></td>
 <!--                <td><input type="button" value="参加活动"></td>-->
->>>>>>> 5c80f6e4cbd8bbb9b0e1d6dd4f7c298fb62fa337
             </tr>
         </tbody>
     </table>
