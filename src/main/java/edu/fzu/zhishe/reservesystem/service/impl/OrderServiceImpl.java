@@ -54,14 +54,22 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean isLegalOrder(String name, String idNum, String tel, String num, int task_id) {
-        OrderList orderList1 = findByIdNumAndTaskId(idNum,task_id);
-        if(orderList1 != null){
-            System.out.println("该身份证号已经预约过");
+        System.out.println("合法信息判断中");
+        System.out.println("空信息判断中");
+        if(name.isEmpty()||idNum.isEmpty()||tel.isEmpty()||num.isEmpty()){
+            System.out.println("您没有填写信息");
             return false;
         }
+        System.out.println("身份证重复判断中");
+        OrderList orderList1 = findByIdNumAndTaskId(idNum,task_id);
+        if(orderList1 != null){
+            System.out.println("该身份证号在第" + task_id+"次活动中已经预约过");
+            return false;
+        }
+        System.out.println("手机号重复判断中");
         OrderList orderList2 = findByTelAndTaskId(tel,task_id);
         if(orderList2 != null){
-            System.out.println("该手机号号已经预约过");
+            System.out.println("该手机号在第" + task_id+"次活动中已经预约过");
             return false;
         }
         return true;
@@ -73,7 +81,7 @@ public class OrderServiceImpl implements OrderService {
         int count2 = 0;
         int hitTaskId = 0;
         //身份证号判断
-        System.out.println("身份证号判断");
+        System.out.println("身份证号中奖判断中");
         for(int i = task_id - 1;i>0;i--){
             count1++;
             if(count1>3){
@@ -91,7 +99,7 @@ public class OrderServiceImpl implements OrderService {
                 return hitTaskId;
             }
         }
-        System.out.println("手机号判断");
+        System.out.println("手机号中奖判断中");
         //手机号判断
         for(int i = task_id - 1;i>0;i--){
             count2++;
