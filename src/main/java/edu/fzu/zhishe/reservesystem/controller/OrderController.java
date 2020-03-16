@@ -74,10 +74,14 @@ public class OrderController {
         @RequestParam(value="tel") String tel,
         @RequestParam(value="maskNum") String num)
     {
-
+        if(!orderService.isLegalOrder(name,idNum,tel,num,taskId)){
+            System.out.println("非法order");
+            return "order/index";
+        }
         //@RequestParam(value="task_id") String task_id,   这个等前端task_id表单写好粘贴到+++++处
         //System.out.println(taskId);
         OrderList orderList = new OrderList();
+
         orderList.setIdCard(idNum);
         orderList.setName(name);
         orderList.setPhone(tel);

@@ -2,9 +2,13 @@ package edu.fzu.zhishe.reservesystem.service.impl;
 
 import edu.fzu.zhishe.reservesystem.generator.OrderList;
 import edu.fzu.zhishe.reservesystem.generator.OrderListDao;
+import edu.fzu.zhishe.reservesystem.generator.OrderListExample;
 import edu.fzu.zhishe.reservesystem.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author xjliang
@@ -12,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
+    @Resource
     private OrderListDao orderListDao;
 
     @Override
@@ -37,5 +41,40 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public int insertByOrderList(OrderList orderList){
         return orderListDao.insert(orderList);
+    }
+
+    @Override
+    public boolean isLegalOrder(String name, String idNum, String tel, String num, int task_id) {
+        OrderList orderList1 = findByIdNum(idNum,task_id);
+        if(orderList1 != null){
+            System.out.println("该身份证号已经预约过");
+            return false;
+        }
+        OrderList orderList2 = findByTel(tel,task_id);
+        if(orderList2 != null){
+            System.out.println("该手机号号已经预约过");
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public OrderList findByTel(String tel,int taskId) {
+        OrderListExample orderListExample = new OrderListExample();
+        orderListExample.createCriteria()
+                .andPhoneEqualTo(tel)
+                .andTaskIdEqualTo(taskId);
+        List<OrderList> orderLists = orderListDao.selectByExample(orderListExample);
+        return orderLists.isEmpty()?null:orderLists.get(0);
+    }
+
+    @Override
+    public OrderList findByIdNum(String idNum,int taskId) {
+        OrderListExample orderListExample = new OrderListExample();
+        orderListExample.createCriteria()
+                .andIdCardEqualTo(idNum)
+                .andTaskIdEqualTo(taskId);
+        List<OrderList> orderLists = orderListDao.selectByExample(orderListExample);
+        return orderLists.isEmpty()?null:orderLists.get(0);
     }
 }

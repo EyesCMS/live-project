@@ -14,4 +14,10 @@ public interface OrderService {
     boolean hitJack(Integer id);
 
     int insertByOrderList(OrderList orderList);
+
+    boolean isLegalOrder( String name,String idNum,String tel,String num,int task_id);
+
+    OrderList findByTel(String tel,int taskId);
+
+    OrderList findByIdNum(String idNum,int taskId);
 }
