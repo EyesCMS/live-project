@@ -33,7 +33,12 @@ public class OrderController {
     private int taskId;
 
     @RequestMapping("/index")
-    public String index(@RequestParam(value="taskId") String task_id) {
+    public String index() {
+        return "redirect:/task";
+    }
+
+    @RequestMapping("/index/task")
+    public String indexWithTaskId(@RequestParam(value="taskId") String task_id) {
         taskId = Integer.parseInt(task_id);
         return "order/index";
     }
