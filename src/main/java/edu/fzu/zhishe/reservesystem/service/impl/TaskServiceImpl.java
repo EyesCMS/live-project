@@ -51,6 +51,7 @@ public class TaskServiceImpl implements TaskService {
         return taskDao.insert(task);
     }
 
+
     @Override
     public boolean isLegalInput(String startDate,String endDate,String startTime,String endTime,String maxSingleNum,String maxTotalNum) throws ParseException {
         if(startDate.isEmpty()||endDate.isEmpty()||startTime.isEmpty()||endTime.isEmpty()||maxSingleNum.isEmpty()||maxTotalNum.isEmpty()){

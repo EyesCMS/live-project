@@ -78,6 +78,11 @@ public class OrderController {
             System.out.println("非法order");
             return "order/index";
         }
+
+        if(orderService.isHitBefore(name,idNum,tel,num,taskId)!=0){
+            System.out.println("您已在第" + orderService.isHitBefore(name,idNum,tel,num,taskId) + "次活动中中奖");
+            return "order/index";
+        }
         //@RequestParam(value="task_id") String task_id,   这个等前端task_id表单写好粘贴到+++++处
         //System.out.println(taskId);
         OrderList orderList = orderService.orderListCreate(name,idNum,tel,num,taskId);

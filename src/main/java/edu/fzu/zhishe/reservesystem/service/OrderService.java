@@ -17,6 +17,8 @@ public interface OrderService {
 
     boolean isLegalOrder( String name,String idNum,String tel,String num,int task_id);
 
+    int isHitBefore( String name,String idNum,String tel,String num,int task_id);
+
     OrderList findByTelAndTaskId(String tel,int taskId);
 
     OrderList findByIdNumAndTaskId(String idNum,int taskId);

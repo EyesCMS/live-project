@@ -68,6 +68,28 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public int isHitBefore(String name, String idNum, String tel, String num, int task_id) {
+        int count = 0;
+        int hitTaskId = 0;
+        for(int i = task_id - 1;i>0;i--){
+            count++;
+            if(count>3){
+                return hitTaskId;
+            }
+            OrderList orderList = findByIdNumAndTaskId(idNum,i);
+            if(orderList==null){
+                System.out.println("你没有参加第" + i + "次活动");
+                continue;
+            }
+            if(orderList.getSuccess()==1){
+                hitTaskId = i;
+                break;
+            }
+        }
+        return hitTaskId;
+    }
+
+    @Override
     public OrderList findByTelAndTaskId(String tel,int taskId) {
         OrderListExample orderListExample = new OrderListExample();
         orderListExample.createCriteria()
