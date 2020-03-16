@@ -24,4 +24,15 @@ public class TaskController {
 
         return modelAndView;
     }
+
+    @RequestMapping("/taskToAdmin")
+    public ModelAndView taskToAdmin() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("admin/task");
+
+        List<Task> tasks = taskService.findAll();
+        modelAndView.addObject("tasks", tasks);
+
+        return modelAndView;
+    }
 }

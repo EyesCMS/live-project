@@ -65,7 +65,7 @@ public class AdminController {
 
         System.out.println("任务发布成功");
 
-        return "redirect:/task";
+        return "redirect:/taskToAdmin";
 //        return "admin/task";
     }
 }
