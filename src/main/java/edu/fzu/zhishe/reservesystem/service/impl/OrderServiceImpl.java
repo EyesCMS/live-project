@@ -39,18 +39,27 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int insertByOrderList(OrderList orderList){
-        return orderListDao.insert(orderList);
+    public OrderList orderListCreate(String name, String idNum, String tel, String num, int task_id) {
+        OrderList orderList = new OrderList();
+
+        orderList.setIdCard(idNum);
+        orderList.setName(name);
+        orderList.setPhone(tel);
+        orderList.setNum(Integer.parseInt(num));
+        orderList.setTaskId(task_id);//这里留作task_id填写
+        orderList.setSuccess(0);//如果0代表没中
+
+        return orderList;
     }
 
     @Override
     public boolean isLegalOrder(String name, String idNum, String tel, String num, int task_id) {
-        OrderList orderList1 = findByIdNum(idNum,task_id);
+        OrderList orderList1 = findByIdNumAndTaskId(idNum,task_id);
         if(orderList1 != null){
             System.out.println("该身份证号已经预约过");
             return false;
         }
-        OrderList orderList2 = findByTel(tel,task_id);
+        OrderList orderList2 = findByTelAndTaskId(tel,task_id);
         if(orderList2 != null){
             System.out.println("该手机号号已经预约过");
             return false;
@@ -59,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderList findByTel(String tel,int taskId) {
+    public OrderList findByTelAndTaskId(String tel,int taskId) {
         OrderListExample orderListExample = new OrderListExample();
         orderListExample.createCriteria()
                 .andPhoneEqualTo(tel)
@@ -69,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderList findByIdNum(String idNum,int taskId) {
+    public OrderList findByIdNumAndTaskId(String idNum,int taskId) {
         OrderListExample orderListExample = new OrderListExample();
         orderListExample.createCriteria()
                 .andIdCardEqualTo(idNum)
