@@ -8,6 +8,7 @@ import edu.fzu.zhishe.reservesystem.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,9 +38,9 @@ public class OrderController {
         return "redirect:/task";
     }
 
-    @RequestMapping("/index/task")
-    public String indexWithTaskId(@RequestParam(value="taskId") String task_id) {
-        taskId = Integer.parseInt(task_id);
+    @RequestMapping("/index/task/{taskId}")
+    public String indexWithTaskId(@PathVariable String taskId) {
+        this.taskId = Integer.parseInt(taskId);
         return "order/index";
     }
 
