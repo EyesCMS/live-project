@@ -17,7 +17,7 @@ public class TaskController {
     @RequestMapping("/task")
     public ModelAndView task() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("task");
+        modelAndView.setViewName("order/task");
 
         List<Task> tasks = taskService.findAll();
         modelAndView.addObject("tasks", tasks);

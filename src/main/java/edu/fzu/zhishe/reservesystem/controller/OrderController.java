@@ -8,7 +8,6 @@ import edu.fzu.zhishe.reservesystem.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +30,11 @@ public class OrderController {
     @Autowired
     private DateUtil dateUtil;
 
+    @RequestMapping("/index")
+    public String index() {
+        return "order/index";
+    }
+
     @PostMapping("/query")
     public ModelAndView queryOrderResult(@RequestParam("orderNumber") Integer orderId, Model model) {
         OrderList order = orderService.findById(orderId);
@@ -42,14 +46,37 @@ public class OrderController {
                     model.addAttribute("order", order);
                 }
                 model.addAttribute("random_result", hitJack);
-                return new ModelAndView("result", "orderResultModel", model);
+                return new ModelAndView("order/result", "orderResultModel", model);
             } else {
                 Task task = taskService.findById(taskId);
                 model.addAttribute("startTime", dateUtil.format(task.getStartTime()));
                 model.addAttribute("endTime", dateUtil.format(task.getEndTime()));
-                return new ModelAndView("not_finished", "notFinishedModel", model);
+                return new ModelAndView("order/not_finished", "notFinishedModel", model);
             }
         }
-        return new ModelAndView("user");
+        return new ModelAndView("order/index");
+    }
+
+    @PostMapping("/add")
+    public String doOrder(/*+++++++++++++++++++++++++++++++++++++*/
+        @RequestParam(value="name") String name,
+        @RequestParam(value="idNumber") String idNum,
+        @RequestParam(value="tel") String tel,
+        @RequestParam(value="maskNum") String num)
+    {
+
+        //@RequestParam(value="task_id") String task_id,   这个等前端task_id表单写好粘贴到+++++处
+
+        OrderList orderList = new OrderList();
+        orderList.setIdCard(idNum);
+        orderList.setName(name);
+        orderList.setPhone(tel);
+        orderList.setNum(Integer.parseInt(num));
+        orderList.setTaskId(1);//这里留作task_id填写
+        orderList.setSuccess(0);//如果0代表没中
+
+        System.out.println(orderList.toString());
+        orderService.add(orderList);
+        return "order/index";
     }
 }

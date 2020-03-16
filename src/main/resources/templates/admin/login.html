@@ -36,7 +36,7 @@
         </div>
         <!-- 登陆表单 -->
         <div id="login">
-            <form th:action="@{/login}" method="post">
+            <form th:action="@{/admin/login}" method="post">
                 <h2>登录</h2>
                 <img src="/img/login_img.jpg" alt="登录头像" width="60px" height="60px">
                 <div id="username">
@@ -57,7 +57,7 @@
 <!--                    <input type="password" placeholder="请输入密码">-->
                 </div>
                 <input type="submit" value="提交" />
-                <input type="button" onclick="javascrtpt:window.location.href='user'" value="返回预约" />
+                <input type="button" onclick="window.location.href='user'" value="返回预约" />
             </form>
         </div>
     </div>
