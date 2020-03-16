@@ -1,4 +1,4 @@
-#join,#new,#out{
+#join,#new,#out,#back{
     background-color: #FFE4C4;
     padding: 5px 10px;
     border-radius: 8px;
@@ -6,10 +6,20 @@
     font-weight:bold;
 }
 
-#new,#out{
+#new,#out,#back{
     text-align: center;
 }
 
-#join:hover,#new:hover,#out:hover{
+#join:hover,#new:hover,#out:hover,#back:hover{
     box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#backa
+{
+    color:#000;
+}
+
+#backa:hover
+{
+    color:#000;
 }
