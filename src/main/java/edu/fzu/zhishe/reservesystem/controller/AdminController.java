@@ -81,8 +81,9 @@ public class AdminController {
         taskService.insertByTask(task);
 
         System.out.println("任务发布成功");
-        return "admin/task";
 
+        return "redirect:/task";
+//        return "admin/task";
     }
 }
 
