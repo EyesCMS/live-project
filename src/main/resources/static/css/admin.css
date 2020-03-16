@@ -36,7 +36,7 @@ td{
 }
 
 tr:hover {
-  background-color:#FFF5EE; /* 动态变色,IE6下无效！*/
+  background-color:#FFF5EE;
 }
 
 #commit{

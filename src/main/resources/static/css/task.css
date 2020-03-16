@@ -1,0 +1,15 @@
+#join,#new,#out{
+    background-color: #FFE4C4;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-family:微软雅黑;
+    font-weight:bold;
+}
+
+#new,#out{
+    text-align: center;
+}
+
+#join:hover,#new:hover,#out:hover{
+    box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
