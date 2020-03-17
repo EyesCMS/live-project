@@ -22,4 +22,6 @@ public interface OrderService {
     OrderList findByTelAndTaskId(String tel,int taskId);
 
     OrderList findByIdNumAndTaskId(String idNum,int taskId);
+
+    void exportJackFile();
 }

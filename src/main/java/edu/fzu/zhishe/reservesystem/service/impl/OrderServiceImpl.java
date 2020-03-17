@@ -4,6 +4,12 @@ import edu.fzu.zhishe.reservesystem.generator.OrderList;
 import edu.fzu.zhishe.reservesystem.generator.OrderListDao;
 import edu.fzu.zhishe.reservesystem.generator.OrderListExample;
 import edu.fzu.zhishe.reservesystem.service.OrderService;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +22,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Resource
+    @Autowired
     private OrderListDao orderListDao;
 
     @Override
@@ -140,5 +146,21 @@ public class OrderServiceImpl implements OrderService {
                 .andTaskIdEqualTo(taskId);
         List<OrderList> orderLists = orderListDao.selectByExample(orderListExample);
         return orderLists.isEmpty()?null:orderLists.get(0);
+    }
+
+    @Override
+    public void exportJackFile() {
+        OrderListExample orderListExample = new OrderListExample();
+        orderListExample.createCriteria().andSuccessEqualTo(1);
+        List<OrderList> orderLists = orderListDao.selectByExample(orderListExample);
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("D:/export.txt"))) {
+            for (OrderList orderList : orderLists) {
+                bufferedWriter.write(orderList.getId() + " " + orderList.getName());
+                bufferedWriter.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

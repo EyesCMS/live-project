@@ -36,7 +36,8 @@
         </tbody>
     </table>
     <input type="button" value="生成中签" id="new">
-    <input type="button" value="导出文件" id="out">
+    <a th:href="@{/order/export}"><button id="out">导出文件</button></a>
+<!--    <input type="button" value="导出文件" id="out">-->
     <a th:href="@{admin/index}" id="backa"><input type="button" value="返回发布" id="back"/></a>
 </div>
 
